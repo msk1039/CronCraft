@@ -1,17 +1,17 @@
-"use client"
+"use client";
 // import React, { useState } from "react";
 // import CronForm from "../../components/CronForm";
 // import { generateYAML } from '../../utils/generateYAML';
 
-import CronJobGenerator from '../../components/CronJobGenerator';
+import CronJobGenerator from "../../components/CronJobGenerator";
 
 export default function generator() {
-//   const [yamlOutput, setYamlOutput] = useState("");
+  //   const [yamlOutput, setYamlOutput] = useState("");
 
-//   const handleFormSubmit = (cronExpression, taskName, taskCommand) => {
-//     const yaml = generateYAML(cronExpression, taskName, taskCommand);
-//     setYamlOutput(yaml);
-//   };
+  //   const handleFormSubmit = (cronExpression, taskName, taskCommand) => {
+  //     const yaml = generateYAML(cronExpression, taskName, taskCommand);
+  //     setYamlOutput(yaml);
+  //   };
 
   return (
     <>
@@ -28,10 +28,9 @@ export default function generator() {
           </div>
         )}
       </div> */}
-      <div className="container mx-auto py-12">
-      {/* <h1 className="text-2xl font-bold mb-4">GitHub Actions Cron Job Generator</h1> */}
-      <CronJobGenerator />
-    </div>
+      <div className="container mx-auto py-6">
+        <CronJobGenerator />
+      </div>
     </>
   );
 }

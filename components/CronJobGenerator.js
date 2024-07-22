@@ -12,8 +12,10 @@ import {
 import { Checkbox } from "./ui/checkbox";
 import { Label } from "./ui/label";
 import { LuClipboard } from "react-icons/lu";
+import { MdOutlineDone } from "react-icons/md";
 
 const CronJobGenerator = () => {
+  const [copied, setcopy] = useState(false);
   const [schedule, setSchedule] = useState({
     minutes: { type: "every", values: [] },
     hours: { type: "every", values: [] },
@@ -133,7 +135,7 @@ jobs:
   );
 
   return (
-    <Card className="md:w-full max-w-3xl mx-6 md:mx-auto">
+    <Card className="w-full max-w-3xl mx-auto md:mx-auto">
       <CardHeader>
         <CardTitle>GitHub Actions Cron Job Generator</CardTitle>
       </CardHeader>
@@ -187,9 +189,19 @@ jobs:
           <Button onClick={generateYAML}>Generate YAML</Button>
           {yamlOutput && (
             <div className="relative">
-            
-              <Button className="absolute top-5 right-5" onClick={() => navigator.clipboard.writeText(yamlOutput)}>
-                <LuClipboard className="mr-2 h-4 w-4" /> copy
+              <Button
+                className="absolute top-5 right-5"
+                onClick={() => {
+                  navigator.clipboard.writeText(yamlOutput);
+                  setcopy(true);
+                }}
+              >
+                {copied ? (
+                  <MdOutlineDone className="mr-2 h-4 w-4" />
+                ) : (
+                  <LuClipboard className="mr-2 h-4 w-4" />
+                )}
+                copy
               </Button>
 
               <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-md overflow-x-auto">
